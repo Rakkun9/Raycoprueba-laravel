@@ -22,7 +22,7 @@ Este proyecto es una aplicación web construida con el framework Laravel. Incluy
 
     ```sh
     git clone https://github.com/Rakkun9/Raycoprueba-laravel
-    cd tu-proyecto
+    cd Raycoprueba-laravel
     ```
 
 2. **Instala las dependencias:**
@@ -77,6 +77,15 @@ Este proyecto es una aplicación web construida con el framework Laravel. Incluy
 -   **Inicio de Sesión:** Ve a `/login` para iniciar sesión con tus credenciales.
 -   **Cerrar Sesión:** Haz clic en el botón de cerrar sesión para terminar tu sesión.
 
+### Gestión de Categorías
+
+-   **Ver Categorías:** Es necesario crear una nueva categoria para poder guardar y segmentar las tareas en cuestión
+
+-   **Ver Categorías:** Ve a `/categories` para ver todas las categorías.
+-   **Crear una Categoría:** Completa el formulario en la página de categorías para crear una nueva categoría.
+-   **Editar una Categoría:** Haz clic en una categoría para editar sus detalles.
+-   **Eliminar una Categoría:** Haz clic en el botón de eliminar junto a una categoría para eliminarla.
+
 ### Gestión de Tareas
 
 -   **Crear una Tarea:** Completa el formulario en la página principal para crear una nueva tarea.
@@ -86,13 +95,148 @@ Este proyecto es una aplicación web construida con el framework Laravel. Incluy
 -   **Marcar como Completada:** Haz clic en el botón de completar para marcar una tarea como completada.
 -   **Ver Tareas Completadas:** Ve a `/completed` para ver todas las tareas completadas.
 
-### Gestión de Categorías
+### Advertencia
 
--   **Ver Categorías:** Ve a `/categories` para ver todas las categorías.
--   **Crear una Categoría:** Completa el formulario en la página de categorías para crear una nueva categoría.
--   **Editar una Categoría:** Haz clic en una categoría para editar sus detalles.
--   **Eliminar una Categoría:** Haz clic en el botón de eliminar junto a una categoría para eliminarla.
+-   **Los usuarios que se crean acceden a los mismos recursos que los demás usuarios haciendo que sea una aplicación compartida**
 
 ## Contribuyendo
 
 Este proyecto quedará en un repositorio privado para la protección de datos.
+
+## Despliegue en Heroku
+
+### Requisitos Previos
+
+-   Tener una cuenta en [Heroku](https://www.heroku.com/).
+-   Agregar un método de pago en [Heroku] (Te va cobrar 1$ dolar para verificar la tarjeta, a mí no me devolvió ese dólar aún).
+-   Tener [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) instalado en tu máquina.
+
+### Pasos para Desplegar
+
+1. **Inicia sesión en Heroku:**
+
+    ```sh
+    heroku login
+    ```
+
+2. **Crea una nueva aplicación en Heroku:**
+
+    Si ya tienes tu aplicación creada omite el paso número 2
+
+    ```sh
+    heroku create nombre-de-tu-aplicacion
+    ```
+
+3. **Configura las variables de entorno en Heroku:**
+
+    ```sh
+    heroku config:set APP_KEY=$(php artisan key:generate --show)
+    heroku config:set DB_CONNECTION=mysql
+    heroku config:set DB_HOST=tu_host_de_base_de_datos
+    heroku config:set DB_PORT=3306
+    heroku config:set DB_DATABASE=tu_base_de_datos
+    heroku config:set DB_USERNAME=tu_usuario
+    heroku config:set DB_PASSWORD=tu_contraseña
+    ```
+
+    (Opcional). **Configura las variables de entorno en Heroku:**
+
+    En la configuración de tu proyecto vas a encontrar una opción que dice `sh setings, config vars`
+    Te sirve para modificar directamente las variables de entorno en la página directa de Heroku
+    Solo es copiar de tu `.env` y pegar las que sean necesarias
+
+4. **Agrega la base de datos ClearDB MySQL (opcional):**
+
+    Luego, obtén la URL de la base de datos y configúrala en las variables de entorno:
+    Así mismo como está en el `.env`
+
+    ```sh
+    DB_CONNECTION=mysql
+    ```
+
+    Ajusta las variables de entorno en Heroku con los valores obtenidos.
+
+5. **Realiza un commit de todos los cambios:**
+
+    ```sh
+    git add .
+    git commit -m "Preparando para despliegue en Heroku"
+    ```
+
+6. **Despliega la aplicación a Heroku:**
+
+    ```sh
+    git push heroku main
+    ```
+
+7. **Ejecuta las migraciones en Heroku:**
+
+    ```sh
+    heroku run php artisan migrate
+    ```
+
+    O Accede a la terminal con:
+
+    ```sh
+    Heroku run bash
+    ```
+
+    Y ejecuta el comando
+
+    ```sh
+    php artisan migrate
+    ```
+
+8. **Accede a la aplicación:**
+   Abre tu navegador web y ve a [`https://raycoprueba-laravel-00a7dec52432.herokuapp.com/`].
+
+### Notas Adicionales
+
+-   Asegúrate de que tu archivo [`composer.json`] tenga la configuración correcta para Heroku.
+-   Puedes configurar otros addons de Heroku según tus necesidades, como Redis, Mailgun, etc.
+
+### Manejo de posibles errores
+
+-   Si da error 403 verifica que el Procfile esté bien configurado y este exactamente con ese nombre
+
+```sh
+Procfile
+```
+
+    En la carpeta raíz de tu proyecto
+
+-   En caso de que siga con error crea un archivo
+
+```sh
+.htaccess
+```
+
+Y escribes el siguiente código dentro de este archivo
+
+```sh
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-public
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+```
+
+-   Si cuando la aplicación corre y te da una advertencia de que la página no es segura
+    es debido a que no es 'HTTPS' para poder corregir esto se irán al archivo en tu proyecto que se llama
+
+```sh
+Http/providers/AppServiceProvider.php
+```
+
+En el método boot ponen el siguiente código
+
+```sh
+
+    if(config('app.env')=== 'production') {
+            URL::forceScheme('https');
+    }
+```
+
+Para forzar https en el entorno de producción que se desplegó en Heroku
+
+### Fin
