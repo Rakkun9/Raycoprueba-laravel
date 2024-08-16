@@ -21,7 +21,7 @@ Este proyecto es una aplicación web construida con el framework Laravel. Incluy
 1. **Clona el repositorio:**
 
     ```sh
-    git clone https://github.com/tu-repo/tu-proyecto.git
+    git clone https://github.com/Rakkun9/Raycoprueba-laravel
     cd tu-proyecto
     ```
 
