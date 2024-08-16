@@ -8,12 +8,6 @@ Este proyecto es una aplicación web construida con el framework Laravel. Incluy
 
 -   PHP >= 7.3
 -   Composer
--   Un servidor web (por ejemplo, Apache, Nginx) Aunque también es posible usar
-
-    ```
-    php artisan serve
-    ```
-
 -   Una base de datos de MySQL
 
 ### Instalación
@@ -32,10 +26,6 @@ Este proyecto es una aplicación web construida con el framework Laravel. Incluy
     ```
 
 3. **Copia el archivo de entorno de ejemplo y configúralo:**
-
-    ```sh
-    cp .env.example .env
-    ```
 
 4. **Genera una clave de aplicación:**
 
