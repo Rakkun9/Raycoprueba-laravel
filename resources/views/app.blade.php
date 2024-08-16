@@ -69,6 +69,9 @@
                     <a class="nav-link" href="{{route('categories.index')}}">Categorias</a>
                     <!-- Enlace a la página de tareas completadas -->
                     <a class="nav-link" href="{{route('todos-completed')}}">Tareas completadas</a>
+                    <!-- Enlace para cerrar sesión -->
+                    <a href="/logout">logout</a>
+
                 </div>
             </div>
         </div>

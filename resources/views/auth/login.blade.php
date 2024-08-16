@@ -48,7 +48,7 @@
 
         <!-- Enlace para redirigir a la página de registro -->
         <div class="text-center">
-            <p>Not a member? <a href="/register">Register</a></p>
+            <p>¿No eres un miembro? <a href="/register">Registrate aquí</a></p>
         </div>
     </form>
 </body>

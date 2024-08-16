@@ -5,9 +5,7 @@
 
 @auth
 <!-- Enlace para cerrar sesión -->
-<p>
-    <a href="/logout">logout</a>
-</p>
+
 
 <!-- Contenedor principal con clases de Bootstrap para estilo -->
 <div class="container w-50 border p-4">
