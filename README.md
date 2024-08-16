@@ -99,10 +99,6 @@ Este proyecto es una aplicación web construida con el framework Laravel. Incluy
 
 -   **Los usuarios que se crean acceden a los mismos recursos que los demás usuarios haciendo que sea una aplicación compartida**
 
-## Contribuyendo
-
-Este proyecto quedará en un repositorio privado para la protección de datos.
-
 ## Despliegue en Heroku
 
 ### Requisitos Previos
