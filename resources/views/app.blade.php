@@ -46,6 +46,23 @@
         a {
             text-decoration: none;
         }
+
+        @media (max-width: 576px) {
+            .navbar-nav {
+                text-align: center;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 10px 0;
+                border-top: 1px solid #ddd;
+            }
+
+            .navbar-nav .nav-link:first-child {
+                border-top: none;
+            }
+        }
+
+        
     </style>
 </head>
 
@@ -70,8 +87,7 @@
                     <!-- Enlace a la página de tareas completadas -->
                     <a class="nav-link" href="{{route('todos-completed')}}">Tareas completadas</a>
                     <!-- Enlace para cerrar sesión -->
-                    <a href="/logout">logout</a>
-
+                    <a class="nav-link" href="/logout">logout</a>
                 </div>
             </div>
         </div>

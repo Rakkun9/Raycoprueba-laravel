@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Contenedor principal con clases de Bootstrap para estilo -->
-<div class="container w-25 border p-4">
+<div class="container w-100 w-md-25 border p-4">
     <div class="row mx-auto">
         <!-- Formulario para actualizar una categoría existente -->
         <form method="POST" action="{{route('categories.update',['category' => $category->id])}}">
@@ -48,13 +48,13 @@
             @foreach ($category->todos as $todo)
             <div class="row py-1">
                 <!-- Columna para mostrar el título de la tarea -->
-                <div class="col-md-9 d-flex align-items-center">
+                <div class="col-12 col-md-9 d-flex align-items-center">
                     <!-- Enlace para editar la tarea -->
                     <a href="{{ route('todos-edit', ['id' => $todo->id]) }}">{{ $todo->title }}</a>
                 </div>
 
                 <!-- Columna para el botón de eliminar tarea -->
-                <div class="col-md-3 d-flex justify-content-end">
+                <div class="col-12 col-md-3 d-flex justify-content-end">
                     <!-- Formulario para eliminar una tarea existente -->
                     <form action="{{ route('todos-destroy', [$todo->id]) }}" method="POST">
                         <!-- Método HTTP DELETE para eliminar el recurso -->

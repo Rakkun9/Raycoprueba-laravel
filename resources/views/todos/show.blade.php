@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<div class="container w-50 border p-4 mt-4">
+<div class="container w-100 w-md-50 border p-4 mt-4">
     <!-- Formulario para actualizar una tarea existente -->
     <form action="{{route('todos-update', ['id' => $todo->id]) }}" method="POST">
         <!-- Método HTTP PATCH para actualizar el recurso -->

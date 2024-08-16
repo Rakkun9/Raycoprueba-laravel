@@ -27,7 +27,7 @@
 <body>
     <!-- Formulario de inicio de sesión con clases de Bootstrap para estilo, 
      llama a login para poder hacer el envio -->
-    <form class="container w-25 border p-4 mt-4" action="/login" method="POST">
+    <form class="container w-100 w-md-25 border p-4 mt-4" action="/login" method="POST">
         <!-- Token CSRF para proteger contra ataques CSRF -->
         @csrf
 

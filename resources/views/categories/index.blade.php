@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Contenedor principal con clases de Bootstrap para estilo -->
-<div class="container w-25 border p-4">
+<div class="container w-100 w-md-25 border p-4">
     <div class="row mx-auto">
         <!-- Formulario para crear una nueva categoría -->
         <form method="POST" action="{{route('categories.store')}}">
@@ -46,7 +46,7 @@
             @foreach ($categories as $category)
             <div class="row py-1">
                 <!-- Columna para mostrar el nombre y color de la categoría -->
-                <div class="col-md-9 d-flex align-items-center">
+                <div class="col-12 col-md-9 d-flex align-items-center">
                     <!-- Enlace para ver los detalles de la categoría -->
                     <a class="d-flex align-items-center gap-2" href="{{ route('categories.show', ['category' => $category->id]) }}">
                         <span class="color-container" style="background-color: {{ $category->color }}"></span> {{ $category->name }}
@@ -54,7 +54,7 @@
                 </div>
 
                 <!-- Columna para el botón de eliminar categoría -->
-                <div class="col-md-3 d-flex justify-content-end">
+                <div class="col-12 col-md-3 d-flex justify-content-end">
                     <!-- Botón para abrir el modal de confirmación de eliminación -->
                     <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{$category->id}}">Eliminar</button>
                 </div>

@@ -26,7 +26,7 @@
 
 <body>
     <!-- Formulario de registro con clases de Bootstrap para estilo -->
-    <form class="container w-25 border p-4 mt-4" action="/register" method="POST">
+    <form class="container w-100 w-md-25 border p-4 mt-4" action="/register" method="POST">
         <!-- Token CSRF para proteger contra ataques CSRF -->
         @csrf
 

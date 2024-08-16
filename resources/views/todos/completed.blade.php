@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Contenedor principal con clases de Bootstrap para estilo -->
-<div class="container w-50 border p-4">
+<div class="container w-100 w-md-50 border p-4">
     <!-- Título de la sección de tareas completadas -->
     <h2>Tareas Completadas</h2>
     <div class="row mx-auto">
@@ -18,7 +18,7 @@
             @foreach ($completedTodos as $todo)
             <div class="row py-1">
                 <!-- Columna para mostrar el título de la tarea completada -->
-                <div class="col-md-9 d-flex align-items-center">
+                <div class="col-12 col-md-9 d-flex align-items-center">
                     <li><span>{{ $todo->title }} </span></li>
                 </div>
             </div>

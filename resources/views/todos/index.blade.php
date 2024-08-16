@@ -8,7 +8,7 @@
 
 
 <!-- Contenedor principal con clases de Bootstrap para estilo -->
-<div class="container w-50 border p-4">
+<div class="container w-100 w-md-50 border p-4 mt-4">
     <div class="row mx-auto">
         <!-- Formulario para crear una nueva tarea -->
         <form method="POST" action="{{route('todos')}}">
@@ -53,13 +53,13 @@
 
         <div class="row py-1">
             <!-- Columna para mostrar el título de la tarea -->
-            <div class="col-md-9 d-flex align-items-center">
+            <div class="col-8 col-md-9 d-flex align-items-center">
                 <!-- Enlace para editar la tarea -->
                 <a href="{{ route('todos-edit', ['id' => $todo->id]) }}">{{ $todo->title }}</a>
             </div>
 
             <!-- Columna para los botones de acción (Hecho y Eliminar) -->
-            <div class="col-md-3 d-flex justify-content-end">
+            <div class="col-4 col-md-3 d-flex justify-content-end">
                 <!-- Formulario para marcar la tarea como completada -->
                 <form action="{{ route('todos-complete', [$todo->id]) }}" method="POST">
                     <!-- Método HTTP PATCH para actualizar el recurso -->
@@ -67,7 +67,7 @@
                     <!-- Token CSRF para proteger contra ataques CSRF -->
                     @csrf
                     <!-- Botón para marcar la tarea como hecha -->
-                    <button class="btn btn-primary btn-sm mx-2">Hecho</button>
+                    <button class="btn btn-primary btn-sm mx-1">Hecho</button>
                 </form>
 
                 <!-- Formulario para eliminar una tarea existente -->
@@ -77,7 +77,7 @@
                     <!-- Token CSRF para proteger contra ataques CSRF -->
                     @csrf
                     <!-- Botón para eliminar la tarea -->
-                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                    <button class="btn btn-danger btn-sm mx-1">Eliminar</button>
                 </form>
             </div>
         </div>
